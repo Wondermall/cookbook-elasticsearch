@@ -4,7 +4,7 @@ server {
   client_max_body_size <%= node.elasticsearch[:nginx][:client_max_body_size] %>;
 
   error_log   <%= node.elasticsearch[:nginx][:log_dir] %>/elasticsearch-errors.log;
-  access_log  <%= node.elasticsearch[:nginx][:disable_access_log] ? 'off' : node.elasticsearch[:nginx][:log_dir] %>/elasticsearch.log;
+  access_log  <%= node.elasticsearch[:nginx][:disable_access_log] ? 'off' : "#{node.elasticsearch[:nginx][:log_dir]}/elasticsearch.log" %>;
 
   location <%= node.elasticsearch[:nginx][:location] %> {
 
