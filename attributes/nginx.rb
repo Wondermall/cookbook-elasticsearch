@@ -1,5 +1,6 @@
 default[:nginx][:dir]     = "/etc/nginx"
 default[:nginx][:log_dir] = "/var/log/nginx"
+default[:nginx][:disable_aaccess_log] = false
 default[:nginx][:binary]  = "/usr/sbin/nginx"
 default[:nginx][:root]    = "/var/www/nginx"
 
