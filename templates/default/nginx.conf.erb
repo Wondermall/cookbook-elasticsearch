@@ -1,5 +1,6 @@
 user <%= node[:nginx][:user] %>;
 worker_processes  <%= node[:nginx][:worker_processes] %>;
+worker_rlimit_nofile <%= node[:nginx][:worker_rlimit_nofile] %>;
 
 error_log  <%= node[:nginx][:log_dir] %>/error.log;
 pid        /var/run/nginx.pid;
