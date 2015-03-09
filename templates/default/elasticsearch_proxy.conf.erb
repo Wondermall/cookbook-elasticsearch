@@ -1,8 +1,8 @@
 upstream elasticsearch {
-    server http://<%= node.elasticsearch.network.host rescue 'localhost' %>:<%= node.elasticsearch.http.port rescue '9200' %>/;    
+    server <%= node.elasticsearch.network.host rescue 'localhost' %>:<%= node.elasticsearch.http.port rescue '9200' %>/;    
 
-    <% if node.elasticsearch[:nginx][:keepalive] %>
-    keepalive <%= node.elasticsearch[:nginx][:keepalive] %>;
+    <% if node.elasticsearch[:nginx][:keep_alive] %>
+    keepalive <%= node.elasticsearch[:nginx][:keep_alive] %>;
     <% end %>
 }
 
@@ -39,7 +39,7 @@ server {
     proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header  Host $http_host;
 
-    <% if node.elasticsearch[:nginx][:keepalive] %>
+    <% if node.elasticsearch[:nginx][:keep_alive] %>
     proxy_http_version 1.1;
     proxy_set_header Connection "";
     <% end %>
