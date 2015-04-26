@@ -121,11 +121,7 @@ discovery.ec2.tag.<%= key %>: <%= value %>
 <%= print_value 'discovery.gce.tags' -%>
 <%- end -%>
 
-<%- if node.elasticsearch[:repositories] -%>
-repositories:
-	<%- node.elasticsearch[:repositories].each {|repository| YAML::dump(repository)} -%>	
-<%- end -%>
-
+<%= print_value 'repositories' -%>
 ################################## Slow Log ###################################
 
 <%= print_value 'index.search.slowlog.threshold.query.warn' -%>
