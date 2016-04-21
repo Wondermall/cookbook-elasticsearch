@@ -20,7 +20,7 @@ gce = Chef::DataBagItem.load('elasticsearch', 'gce')[node.chef_environment] resc
 #         tags: 	 <REPLACE>
 #
 
-default.elasticsearch['plugins']['elasticsearch/elasticsearch-cloud-gce']['version'] = '2.4.1'
+default.elasticsearch['plugins']['elasticsearch/cloud-gce']['version'] = '2.3.0'
 
 # === GCE ===
 # GCE configuration is set based on data bag values.
